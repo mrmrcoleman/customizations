@@ -1,5 +1,5 @@
 """
-This simple script shows all the environment variables in the current environment and is useful for debugging.
+This script shows all the environment variables in the current environment and is useful for debugging.
 """
 
 from extras.scripts import *
