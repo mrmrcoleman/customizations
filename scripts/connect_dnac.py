@@ -52,16 +52,12 @@ class GetDNACDevices(Script):
         
     def get_dnac_credentials(self) -> tuple[str, str]:
         if os.getenv("DNAC_USERNAME", None) == None:
-            sys.exit(
-                "DNAC_USERNAME environment variable not set. Exiting. Example: 'export DNAC_USERNAME=devnetuser'"
-            )
+            self.log_failure("DNAC_USERNAME environment variable not set. Exiting. Example: 'export DNAC_USERNAME=devnetuser'")
         else:
             dnac_username = os.getenv("DNAC_USERNAME")
 
         if os.getenv("DNAC_PASSWORD", None) == None:
-            sys.exit(
-                "DNAC_PASSWORD environment variable not set. Exiting. Example= 'export DNAC_PASSWORD=Cisco123!'"
-            )
+            self.log_failure("DNAC_PASSWORD environment variable not set. Exiting. Example= 'export DNAC_PASSWORD=Cisco123!'")
         else:
             dnac_password = os.getenv("DNAC_PASSWORD")
 
