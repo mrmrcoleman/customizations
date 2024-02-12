@@ -73,6 +73,14 @@ class GetDNACDevices(Script):
         # Suppress InsecureRequestWarning
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+        try:
+            username, password = self.get_dnac_credentials()
+            token = self.get_auth_token(username, password)
+            device_information = self.get_device_information(token)
+            print(json.dumps(device_information, indent=4))
+        except Exception as e:
+            print(e)
+
         for name, value in os.environ.items():
             self.log_success("{0}: {1}".format(name, value))
 
