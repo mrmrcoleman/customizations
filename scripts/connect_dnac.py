@@ -19,6 +19,9 @@ from extras.scripts import Script
 
 class GetDNACDevices(Script):
 
+    # Suppress InsecureRequestWarning
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
     class Meta:
         name = "GetDNACDevices"
         description = "Connect to a DNAC instance and return the available devices"
