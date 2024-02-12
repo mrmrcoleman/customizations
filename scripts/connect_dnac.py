@@ -17,7 +17,7 @@ import sys
 
 from extras.scripts import Script
 
-class ShowEnvVars(Script):
+class GetDNACDevices(Script):
 
     def get_auth_token(self, username, password):
         # Complete URL for the authentication endpoint
