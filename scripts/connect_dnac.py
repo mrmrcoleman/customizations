@@ -51,15 +51,15 @@ class GetDNACDevices(Script):
                 raise Exception(f"Error: Unable to fetch device information, status code {response.status_code}")
         
     def get_dnac_credentials(self) -> tuple[str, str]:
-        if os.getenv("DNAC_USERNAME", None) == None:
-            self.log_failure("DNAC_USERNAME environment variable not set. Exiting. Example: 'export DNAC_USERNAME=devnetuser'")
+        if os.getenv("SECRET_DNAC_USERNAME", None) == None:
+            self.log_failure("SECRET_DNAC_USERNAME environment variable not set. Exiting. Example: 'export SECRET_DNAC_USERNAME=devnetuser'")
         else:
-            dnac_username = os.getenv("DNAC_USERNAME")
+            dnac_username = os.getenv("SECRET_DNAC_USERNAME")
 
-        if os.getenv("DNAC_PASSWORD", None) == None:
-            self.log_failure("DNAC_PASSWORD environment variable not set. Exiting. Example= 'export DNAC_PASSWORD=Cisco123!'")
+        if os.getenv("SECRET_DNAC_PASSWORD", None) == None:
+            self.log_failure("SECRET_DNAC_PASSWORD environment variable not set. Exiting. Example= 'export SECRET_DNAC_PASSWORD=Cisco123!'")
         else:
-            dnac_password = os.getenv("DNAC_PASSWORD")
+            dnac_password = os.getenv("SECRET_DNAC_PASSWORD")
 
         return dnac_username, dnac_password
 
