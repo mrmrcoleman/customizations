@@ -72,7 +72,7 @@ class GetDNACDevices(Script):
             username, password = self.get_dnac_credentials()
             token = self.get_auth_token(username, password)
             device_information = self.get_device_information(token)
-            for device in device_information["reponse"]:
+            for device in device_information["response"]:
                 self.log_success(json.dumps(device, indent=4))
         except Exception as e:
             print(e)
