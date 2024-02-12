@@ -13,8 +13,8 @@ import os
 class ShowEnvVars(Script):
 
     class Meta:
-        name = "Display ENV VARs"
-        description = "Display ENV VARs"
+        name = "GetDNACDevices"
+        description = "Connect to a DNAC instance and return the available devices"
 
     def run(self, data, commit):
 
