@@ -3,15 +3,15 @@ This script connects to Cisco DNAC and returns a list of the available devices.
 
 It expects to find the following environment variables present and will exit if both are not set in the environment:
 
-$DNAC_USERNAME
-$DNAC_PASSWORD
+DNAC_USERNAME
+DNAC_PASSWORD
 """
 
 #import requests
 #import base64
 #import json
 #import urllib3
-#import os
+import os
 #import sys
 
 # Hack to get this working locally
@@ -20,12 +20,6 @@ $DNAC_PASSWORD
 #        pass
 
 class GetDNACDevices(Script):
-
-    # Suppress InsecureRequestWarning
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-    # Define the base URL
-    base_url = "https://sandboxdnac.cisco.com/dna/"
 
     class Meta:
         name = "GetDNACDevices"
