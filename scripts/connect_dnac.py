@@ -7,12 +7,12 @@ $DNAC_USERNAME
 $DNAC_PASSWORD
 """
 
-import requests
-import base64
-import json
-import urllib3
-import os
-import sys
+#import requests
+#import base64
+#import json
+#import urllib3
+#import os
+#import sys
 
 # Hack to get this working locally
 #if "Script" not in globals():
