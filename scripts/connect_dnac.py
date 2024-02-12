@@ -18,7 +18,7 @@ import sys
 class ShowEnvVars(Script):
 
     # Suppress InsecureRequestWarning
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+    #urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
     class Meta:
         name = "GetDNACDevices"
