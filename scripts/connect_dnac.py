@@ -1,5 +1,10 @@
 """
-This script shows all the environment variables in the current environment and is useful for debugging.
+This script connects to Cisco DNAC and returns a list of the available devices.
+
+It expects to find the following environment variables present and will exit if both are not set in the environment:
+
+DNAC_USERNAME
+DNAC_PASSWORD
 """
 
 from extras.scripts import *
