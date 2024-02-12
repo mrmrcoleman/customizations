@@ -14,6 +14,11 @@ import json
 import os
 import sys
 
+# Hack to get this working locally
+if "Script" not in globals():
+    class Script:
+        pass
+
 class ShowEnvVars(Script):
 
     class Meta:
