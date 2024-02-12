@@ -15,7 +15,7 @@ DNAC_PASSWORD
 import os
 import sys
 
-class GetDNACDevices(Script):
+class GetDNACDevicesBase(Script):
 
     class Meta:
         name = "GetDNACDevices"
