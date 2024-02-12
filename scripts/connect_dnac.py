@@ -23,6 +23,8 @@ class ShowEnvVars(Script):
 
     def run(self, data, commit):
 
+        # Can I put a comment in here?
+
         for name, value in os.environ.items():
             self.log_success("{0}: {1}".format(name, value))
 
