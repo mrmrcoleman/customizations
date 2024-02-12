@@ -7,7 +7,7 @@ DNAC_USERNAME
 DNAC_PASSWORD
 """
 
-# These imports break NBC
+# The commented out imports break NBC
 #import requests
 #import urllib3
 #import base64
@@ -15,6 +15,10 @@ DNAC_PASSWORD
 import os
 import sys
 
+# Hack to get this working locally
+if "Script" not in globals():
+    class Script:
+        pass
 
 class ShowEnvVars(Script):
 
