@@ -17,6 +17,20 @@ import sys
 
 class ShowEnvVars(Script):
 
+    def get_auth_token(self, username, password):
+        # Complete URL for the authentication endpoint
+        url = self.base_url + "system/api/v1/auth/token"
+        # Encode the username and password in Base64 for the Authorization header
+        credentials = base64.b64encode(f"{username}:{password}".encode('utf-8')).decode('utf-8')
+        headers = {'Content-Type': 'application/json', 'Authorization': f'Basic {credentials}'}
+        with requests.Session() as session:
+            response = session.post(url, headers=headers, verify=False)
+            if response.status_code == 200:
+                token_info = response.json()
+                return token_info.get('Token')
+            else:
+                raise Exception(f"Error: Unable to fetch token, status code {response.status_code}")
+
     class Meta:
         name = "GetDNACDevices"
         description = "Connect to a DNAC instance and return the available devices"
