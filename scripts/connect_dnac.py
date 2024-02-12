@@ -8,9 +8,9 @@ DNAC_PASSWORD
 """
 
 #import requests
-#import base64
-#import json
 #import urllib3
+import base64
+import json
 import os
 import sys
 
