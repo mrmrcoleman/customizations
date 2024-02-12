@@ -82,11 +82,3 @@ class GetDNACDevices(Script):
             print(json.dumps(device_information, indent=4))
         except Exception as e:
             print(e)
-
-def main():
-    script = GetDNACDevices()
-    output = script.run(None, None)
-
-if __name__ == "__main__":
-    main()
-
