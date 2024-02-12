@@ -14,12 +14,6 @@ import urllib3
 import os
 import sys
 
-# Suppress InsecureRequestWarning
-urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
-# Define the base URL
-base_url = "https://sandboxdnac.cisco.com/dna/"
-
 # Hack to get this working locally
 if "Script" not in globals():
     class Script:
@@ -27,13 +21,19 @@ if "Script" not in globals():
 
 class GetDNACDevices(Script):
 
+    # Suppress InsecureRequestWarning
+    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+    # Define the base URL
+    base_url = "https://sandboxdnac.cisco.com/dna/"
+
     class Meta:
         name = "GetDNACDevices"
         description = "Connect to a DNAC instance and return the available devices"
 
     def get_auth_token(self, username, password):
         # Complete URL for the authentication endpoint
-        url = base_url + "system/api/v1/auth/token"
+        url = self.base_url + "system/api/v1/auth/token"
         # Encode the username and password in Base64 for the Authorization header
         credentials = base64.b64encode(f"{username}:{password}".encode('utf-8')).decode('utf-8')
         headers = {'Content-Type': 'application/json', 'Authorization': f'Basic {credentials}'}
@@ -48,7 +48,7 @@ class GetDNACDevices(Script):
 
     def get_device_information(self, token):
         # Complete URL for the device information endpoint
-        url = base_url + "intent/api/v1/network-device"
+        url = self.base_url + "intent/api/v1/network-device"
         headers = {'Content-Type': 'application/json', 'X-Auth-Token': token}
         with requests.Session() as session:
             response = session.get(url, headers=headers, verify=False)
