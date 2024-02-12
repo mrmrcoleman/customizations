@@ -9,7 +9,7 @@ DNAC_PASSWORD
 
 # The commented out imports break NBC
 #import requests
-#import urllib3
+import urllib3
 import base64
 import json
 import os
