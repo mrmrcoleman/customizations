@@ -19,9 +19,6 @@ from extras.scripts import Script
 
 class GetDNACDevices(Script):
 
-    # Suppress InsecureRequestWarning
-    urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
     class Meta:
         name = "GetDNACDevices"
         description = "Connect to a DNAC instance and return the available devices"
@@ -69,6 +66,9 @@ class GetDNACDevices(Script):
         return dnac_username, dnac_password
 
     def run(self, data, commit):
+
+        # Suppress InsecureRequestWarning
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         for name, value in os.environ.items():
             self.log_success("{0}: {1}".format(name, value))
