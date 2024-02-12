@@ -15,6 +15,8 @@ DNAC_PASSWORD
 import os
 import sys
 
+from extras.scripts import Script
+
 class ShowEnvVars(Script):
 
     def get_auth_token(self, username, password):
