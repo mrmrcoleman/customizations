@@ -15,12 +15,6 @@ DNAC_PASSWORD
 import os
 import sys
 
-# This break NBC
-# Hack to get this working locally
-#if "Script" not in globals():
-#    class Script:
-#        pass
-
 class ShowEnvVars(Script):
 
     class Meta:
