@@ -19,6 +19,9 @@ from extras.scripts import Script
 
 class GetDNACDevices(Script):
 
+    # Define the base URL
+    base_url = "https://sandboxdnac.cisco.com/dna/"
+
     class Meta:
         name = "GetDNACDevices"
         description = "Connect to a DNAC instance and return the available devices"
