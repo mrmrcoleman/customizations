@@ -23,9 +23,6 @@ class ShowEnvVars(Script):
 
     def run(self, data, commit):
 
-        # Suppress InsecureRequestWarning
-        #urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-
         for name, value in os.environ.items():
             self.log_success("{0}: {1}".format(name, value))
 
