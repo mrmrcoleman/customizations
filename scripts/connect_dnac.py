@@ -7,7 +7,12 @@ DNAC_USERNAME
 DNAC_PASSWORD
 """
 
+import requests
+import base64
+import json
+import urllib3
 import os
+import sys
 
 class ShowEnvVars(Script):
 
