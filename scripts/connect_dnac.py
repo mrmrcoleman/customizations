@@ -15,7 +15,7 @@ import os
 import sys
 
 from extras.scripts import Script
-from nbc_developer.secrets import exists, get_secret
+from nbc_developer.cloudsecrets.CloudSecrets import get_by_name
 
 class GetDNACDevices(Script):
 
