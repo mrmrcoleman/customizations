@@ -15,7 +15,7 @@ class TriggerEvents(Script):
 
     # Data to be sent in the webhook payload
     payload = {
-        'action': 'ping_devices',
+        'action': 'network.actions.discover_network',
     }
 
     class Meta:
