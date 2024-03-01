@@ -10,14 +10,6 @@ from extras.scripts import Script, StringVar
 
 class TriggerEvents(Script):
 
-    # Define the base URL
-    target_url = "http://139.178.80.103:5000/webhook"
-
-    # Data to be sent in the webhook payload
-    payload = {
-        'action': 'network.actions.discover_network',
-    }
-
     class Meta:
         name = "TriggerEvents"
         description = "Send webhooks to control the Event Driven Webinar"
