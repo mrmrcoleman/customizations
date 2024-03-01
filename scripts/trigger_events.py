@@ -11,7 +11,7 @@ from extras.scripts import Script
 class TriggerEvents(Script):
 
     # Define the base URL
-    target_url = "http://139.178.80.103:5000"
+    target_url = "http://139.178.80.103:5000/webhook"
 
     # Data to be sent in the webhook payload
     payload = {
