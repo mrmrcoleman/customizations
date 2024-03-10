@@ -15,7 +15,7 @@ import os
 import sys
 
 from extras.scripts import Script
-from netboxlabs.cloud.sdk import NetboxCloudSDK
+#from netboxlabs.cloud.sdk import NetboxCloudSDK
 
 class GetDNACDevices(Script):
 
@@ -52,6 +52,9 @@ class GetDNACDevices(Script):
                 raise Exception(f"Error: Unable to fetch device information, status code {response.status_code}")
         
     def get_dnac_credentials(self) -> tuple[str, str]:
+
+        self.log_failure(f"Installed modules: {help('modules')}")
+
         if os.getenv("SECRET_DNAC_USERNAME", None) == None:
             self.log_failure("SECRET_DNAC_USERNAME environment variable not set. Exiting. Example: 'export SECRET_DNAC_USERNAME=devnetuser'")
         else:
