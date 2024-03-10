@@ -15,7 +15,7 @@ import os
 import sys
 
 from extras.scripts import Script
-from netboxlabs.cloud.sdk import NetboxCloudSDK
+from nbc_developer.cloudsecrets import CloudSecrets
 
 class GetDNACDevices(Script):
 
@@ -52,22 +52,15 @@ class GetDNACDevices(Script):
                 raise Exception(f"Error: Unable to fetch device information, status code {response.status_code}")
         
     def get_dnac_credentials(self) -> tuple[str, str]:
-        # Create a SecretAgent instance
-        sdk = NetboxCloudSDK()
-        agent = sdk.secrets_agent()
-
-        # Get DNAC secrets
-        if not agent.exists("DNAC_USERNAME"):
-            self.log_failure("DNAC_USERNAME environment variable not set.")
+        if os.getenv("SECRET_DNAC_USERNAME", None) == None:
+            self.log_failure("SECRET_DNAC_USERNAME environment variable not set. Exiting. Example: 'export SECRET_DNAC_USERNAME=devnetuser'")
         else:
-            dnac_username = agent.get_secret("DNAC_USERNAME")
-            self.log_success(f"DNAC_USERNAME is {dnac_username}")
+            dnac_username = os.getenv("SECRET_DNAC_USERNAME")
 
-        if not agent.exists("DNAC_PASSWORD"):
-            self.log_failure("DNAC_PASSWORD environment variable not set.")
+        if os.getenv("SECRET_DNAC_PASSWORD", None) == None:
+            self.log_failure("SECRET_DNAC_PASSWORD environment variable not set. Exiting. Example= 'export SECRET_DNAC_PASSWORD=Cisco123!'")
         else:
-            dnac_password = agent.get_secret("DNAC_PASSWORD")
-            self.log_success(f"DNAC_PASSWORD is {dnac_password}")
+            dnac_password = os.getenv("SECRET_DNAC_PASSWORD")
 
         return dnac_username, dnac_password
 
