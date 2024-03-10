@@ -15,7 +15,7 @@ import os
 import sys
 
 from extras.scripts import Script
-#from nbc_developer.cloudsecrets import CloudSecrets
+from netboxlabs.cloud.sdk import NetboxCloudSDK
 
 class GetDNACDevices(Script):
 
