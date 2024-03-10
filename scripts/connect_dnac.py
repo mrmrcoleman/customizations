@@ -13,6 +13,7 @@ import base64
 import json
 import os
 import sys
+import pkgutil
 
 from extras.scripts import Script
 #from netboxlabs.cloud.sdk import NetboxCloudSDK
@@ -53,7 +54,12 @@ class GetDNACDevices(Script):
         
     def get_dnac_credentials(self) -> tuple[str, str]:
 
-        self.log_failure(f"Installed modules: {help('modules')}")
+        # Get a list of installed packages
+        installed_packages = [modname for _, modname, _ in pkgutil.iter_modules()]
+
+        # Print the list of installed packages
+        for package in installed_packages:
+            self.log_failure(package)
 
         if os.getenv("SECRET_DNAC_USERNAME", None) == None:
             self.log_failure("SECRET_DNAC_USERNAME environment variable not set. Exiting. Example: 'export SECRET_DNAC_USERNAME=devnetuser'")
